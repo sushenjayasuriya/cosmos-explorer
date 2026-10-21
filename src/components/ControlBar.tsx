@@ -8,7 +8,8 @@ import {
   Rewind, 
   Gauge,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Rocket
 } from 'lucide-react';
 import { CELESTIAL_BODIES } from '../data/planets';
 
@@ -23,6 +24,8 @@ interface ControlBarProps {
   onToggleReverse: () => void;
   showOrbits: boolean;
   onToggleOrbits: () => void;
+  showTrajectories?: boolean;
+  onToggleTrajectories?: () => void;
   onResetView: () => void;
 }
 
@@ -37,6 +40,8 @@ export const ControlBar: React.FC<ControlBarProps> = ({
   onToggleReverse,
   showOrbits,
   onToggleOrbits,
+  showTrajectories = true,
+  onToggleTrajectories,
   onResetView,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -249,6 +254,22 @@ export const ControlBar: React.FC<ControlBarProps> = ({
           {showOrbits ? <Eye size={13} /> : <EyeOff size={13} />}
           <span className="hidden sm:inline text-xs">Orbits</span>
         </button>
+
+        {/* Toggle Historic Spacecraft Trajectories */}
+        {onToggleTrajectories && (
+          <button
+            onClick={onToggleTrajectories}
+            className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl font-space transition-all hover:scale-105 active:scale-95 border ${
+              showTrajectories
+                ? 'bg-amber-500/20 border-amber-400/40 text-amber-300'
+                : 'bg-white/5 border-white/10 hover:bg-white/10 text-slate-400 hover:text-white'
+            }`}
+            title="Toggle Historic Spacecraft Trajectories (Voyager 1, 2, New Horizons)"
+          >
+            <Rocket size={13} />
+            <span className="hidden sm:inline text-xs">Trajectories</span>
+          </button>
+        )}
 
         {/* Reset Camera to Solar Overview */}
         <button

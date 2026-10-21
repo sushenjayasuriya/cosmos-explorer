@@ -16,6 +16,8 @@ import { OrbitLine } from './OrbitLine';
 import { Starfield } from './Starfield';
 import { CameraRig } from './CameraRig';
 import { ErrorBoundary } from './ErrorBoundary';
+import { AsteroidBelt } from './AsteroidBelt';
+import { SpacecraftTrajectories } from './SpacecraftTrajectories';
 
 interface SolarSystemProps {
   selectedId: string;
@@ -27,6 +29,7 @@ interface SolarSystemProps {
   quality: 'high' | 'eco';
   isOverview: boolean;
   showHero: boolean;
+  showTrajectories?: boolean;
 }
 
 function Loader() {
@@ -141,6 +144,7 @@ export const SolarSystem: React.FC<SolarSystemProps> = ({
   quality,
   isOverview,
   showHero,
+  showTrajectories = true,
 }) => {
   const controlsRef = useRef<OrbitControlsImpl>(null);
 
@@ -250,6 +254,17 @@ export const SolarSystem: React.FC<SolarSystemProps> = ({
             </ErrorBoundary>
           );
         })}
+
+        {/* GPU-Instanced Asteroid & Kuiper Belts */}
+        <AsteroidBelt
+          paused={paused}
+          speed={speed}
+          reverse={reverse}
+          quality={quality}
+        />
+
+        {/* Historic Spacecraft Interplanetary Flight Trajectories */}
+        <SpacecraftTrajectories visible={!!showTrajectories} />
 
         {/* Cinematic Camera Controller */}
         <CameraRig

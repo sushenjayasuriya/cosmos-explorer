@@ -62,6 +62,7 @@ export const SolarSystemPage: React.FC<SolarSystemPageProps> = ({
   const [speed, setSpeed] = useState<number>(1.0);
   const [reverse, setReverse] = useState<boolean>(false);
   const [showOrbits, setShowOrbits] = useState<boolean>(true);
+  const [showTrajectories, setShowTrajectories] = useState<boolean>(true);
   const [tourStepIndex, setTourStepIndex] = useState<number>(0);
   const [isTourPaused, setIsTourPaused] = useState<boolean>(false);
 
@@ -228,6 +229,7 @@ export const SolarSystemPage: React.FC<SolarSystemPageProps> = ({
             speed={speed}
             reverse={reverse}
             showOrbits={showOrbits}
+            showTrajectories={showTrajectories}
             quality={quality}
             isOverview={isOverview}
             showHero={showHero}
@@ -268,6 +270,8 @@ export const SolarSystemPage: React.FC<SolarSystemPageProps> = ({
           onToggleReverse={() => setReverse((r) => !r)}
           showOrbits={showOrbits}
           onToggleOrbits={() => setShowOrbits((o) => !o)}
+          showTrajectories={showTrajectories}
+          onToggleTrajectories={() => setShowTrajectories((prev) => !prev)}
           onResetView={handleResetOverview}
         />
       )}

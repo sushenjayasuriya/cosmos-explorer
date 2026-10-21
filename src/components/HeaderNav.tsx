@@ -15,7 +15,8 @@ import {
   BookOpen,
   Camera,
   Menu,
-  X
+  X,
+  Radio
 } from 'lucide-react';
 
 interface HeaderNavProps {
@@ -32,6 +33,7 @@ interface HeaderNavProps {
   isTourActive: boolean;
   onToggleFocusMode: () => void;
   isFocusMode: boolean;
+  onOpenLiveCenter?: () => void;
 }
 
 export const HeaderNav: React.FC<HeaderNavProps> = ({
@@ -48,6 +50,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   isTourActive,
   onToggleFocusMode,
   isFocusMode,
+  onOpenLiveCenter,
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -211,6 +214,23 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           </>
         )}
 
+        {/* Real-time NASA Space Center Modal Launcher */}
+        {onOpenLiveCenter && (
+          <button
+            onClick={onOpenLiveCenter}
+            className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono border border-emerald-500/40 bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 hover:text-emerald-100 transition-all shadow-md shadow-emerald-950/40 flex-shrink-0 group cursor-pointer"
+            title="Open Real-Time NASA Live Space Center (ISS Orbit Tracker, APOD, Asteroid Radar)"
+            aria-label="Open Real-Time NASA Space Center"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <Radio size={13} className="text-emerald-400 group-hover:scale-110 transition-transform" />
+            <span className="font-semibold tracking-wider text-[11px] sm:text-xs">LIVE NASA</span>
+          </button>
+        )}
+
         {/* Ambient Cosmic Sound Generator (Available across all routes) */}
         <button
           onClick={onToggleAudio}
@@ -355,6 +375,23 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               <span>Gallery</span>
             </NavLink>
           </div>
+
+          {onOpenLiveCenter && (
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenLiveCenter();
+              }}
+              className="mt-2 w-full flex items-center justify-center gap-2 p-3 rounded-xl border border-emerald-500/40 bg-emerald-500/15 text-emerald-300 font-mono text-xs font-semibold"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <Radio size={15} className="text-emerald-400" />
+              <span>REAL-TIME NASA SPACE CENTER</span>
+            </button>
+          )}
         </div>
       )}
     </header>

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-route
 import { HeaderNav } from './components/HeaderNav';
 import { AttributionModal } from './components/AttributionModal';
 import { ShortcutsModal } from './components/ShortcutsModal';
+import { LiveSpaceCenter } from './components/LiveSpaceCenter';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { cosmicAudio } from './utils/audio';
 
@@ -126,6 +127,7 @@ export default function App() {
   const [showHero, setShowHero] = useState<boolean>(true);
   const [showAttribution, setShowAttribution] = useState<boolean>(false);
   const [showShortcuts, setShowShortcuts] = useState<boolean>(false);
+  const [showLiveCenter, setShowLiveCenter] = useState<boolean>(false);
   const [isFocusMode, setIsFocusMode] = useState<boolean>(false);
   const [isTourActive, setIsTourActive] = useState<boolean>(false);
 
@@ -149,6 +151,7 @@ export default function App() {
           onResetView={() => {}}
           onOpenAttribution={() => setShowAttribution(true)}
           onOpenShortcuts={() => setShowShortcuts(true)}
+          onOpenLiveCenter={() => setShowLiveCenter(true)}
           onToggleHero={() => setShowHero((prev) => !prev)}
           showHero={showHero}
           audioActive={audioActive}
@@ -223,6 +226,12 @@ export default function App() {
         <ShortcutsModal
           isOpen={showShortcuts}
           onClose={() => setShowShortcuts(false)}
+        />
+
+        {/* Real-Time NASA Live Space Center Modal */}
+        <LiveSpaceCenter
+          isOpen={showLiveCenter}
+          onClose={() => setShowLiveCenter(false)}
         />
       </div>
     </BrowserRouter>

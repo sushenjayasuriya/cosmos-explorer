@@ -17,7 +17,7 @@ export interface CelestialBody {
   id: string;
   name: string;
   tagline: string;
-  category: 'Star' | 'Terrestrial Planet' | 'Gas Giant' | 'Ice Giant' | 'Moon';
+  category: 'Star' | 'Terrestrial Planet' | 'Gas Giant' | 'Ice Giant' | 'Moon' | 'Dwarf Planet';
   parentId?: string; // If it's a moon, points to parent planet ('earth', 'jupiter', 'saturn')
   
   // 3D Visual parameters (Harmonically scaled for interactive exploration)
@@ -262,6 +262,46 @@ export const PLANETS_DATA: CelestialBody[] = [
     scaleNote: 'Mars has almost the exact same axial tilt (25.19°) as Earth (23.44°), resulting in similar seasonal patterns, though each season lasts twice as long.'
   },
   {
+    id: 'ceres',
+    name: 'Ceres',
+    tagline: 'Queen of the Asteroid Belt',
+    category: 'Dwarf Planet',
+    visualRadius: 0.38,
+    visualDistance: 28.5,
+    orbitPeriodVisual: 1682,
+    rotationPeriodVisual: 9.07,
+    axialTiltDeg: 4.0,
+    color: '#9ca3af',
+    glowColor: '#cbd5e1',
+    texturePath: '/textures/callisto.jpg',
+    diameterKm: 939.4,
+    diameterRelativeToEarth: 0.074,
+    massScientific: '9.393 × 10²⁰ kg',
+    massRelativeToEarth: 0.00015,
+    distanceFromSunAU: 2.767,
+    distanceFromSunMillionKm: 413.9,
+    orbitalPeriodDays: 1681.63,
+    orbitalPeriodDescription: '4.6 Earth Years',
+    rotationPeriodHours: 9.074,
+    rotationPeriodDescription: '9 Hours, 4 Minutes',
+    surfaceGravityMs2: 0.284,
+    surfaceGravityG: 0.029,
+    meanTempC: -106,
+    tempRangeC: '-143°C to -38°C',
+    confirmedMoons: 0,
+    atmosphereComposition: ['Transient water vapor exosphere produced by sublimation'],
+    notableFeatures: [
+      'Occator Crater bright salt faculae (Cerealia Facula)',
+      'Ahuna Mons (4 km high cryovolcanic ice dome)',
+      'Subsurface water-ice mantle and potential remnant brine reservoirs'
+    ],
+    missions: [
+      { name: 'Dawn', agency: 'NASA', year: '2015–2018', type: 'Orbiter', summary: 'First spacecraft to orbit two extraterrestrial bodies (Vesta & Ceres); proved active cryovolcanism.' }
+    ],
+    overview: 'Ceres contains one-third of the total mass of the entire asteroid belt. Discovered in 1801, NASA’s Dawn mission revealed that Ceres is a water-rich embryo planet with reflective sodium carbonate deposits and an active cryovolcanic history.',
+    scaleNote: 'Ceres orbits directly inside the main Asteroid Belt between Mars and Jupiter.'
+  },
+  {
     id: 'jupiter',
     name: 'Jupiter',
     tagline: 'The King of Worlds and Great Red Eye',
@@ -426,6 +466,49 @@ export const PLANETS_DATA: CelestialBody[] = [
     ],
     overview: 'Neptune is the most distant major planet in the solar system, taking nearly 165 Earth years to complete one orbit. Despite receiving only 0.1% of the sunlight Earth receives, Neptune drives the most violent weather in the solar system with supersonic winds reaching 2,100 km/h.',
     scaleNote: 'Neptune is more than 30 times farther from the Sun than Earth, marking the outer threshold before the icy Kuiper Belt.'
+  },
+  {
+    id: 'pluto',
+    name: 'Pluto',
+    tagline: 'The Crown Jewel of the Kuiper Belt',
+    category: 'Dwarf Planet',
+    visualRadius: 0.42,
+    visualDistance: 68.0,
+    orbitPeriodVisual: 90560,
+    rotationPeriodVisual: -153.3, // Retrograde spin
+    axialTiltDeg: 122.53,
+    color: '#c49b72',
+    glowColor: '#e0c3a5',
+    texturePath: '/textures/moon.jpg',
+    diameterKm: 2376.6,
+    diameterRelativeToEarth: 0.186,
+    massScientific: '1.303 × 10²² kg',
+    massRelativeToEarth: 0.0022,
+    distanceFromSunAU: 39.482,
+    distanceFromSunMillionKm: 5906.4,
+    orbitalPeriodDays: 90560.0,
+    orbitalPeriodDescription: '247.9 Earth Years (Eccentric inclined orbit)',
+    rotationPeriodHours: 153.29,
+    rotationPeriodDescription: '6.39 Earth Days (Tidally locked with Charon)',
+    surfaceGravityMs2: 0.62,
+    surfaceGravityG: 0.063,
+    meanTempC: -229,
+    tempRangeC: '-240°C to -218°C',
+    confirmedMoons: 5,
+    interactiveMoons: [
+      { id: 'charon', name: 'Charon', diameterKm: 1212, feature: 'Mutual binary lock; larger than half Pluto’s size' }
+    ],
+    atmosphereComposition: ['99% Molecular Nitrogen (Expands at perihelion)', '0.5% Methane', '0.25% Carbon Monoxide'],
+    notableFeatures: [
+      'Tombaugh Regio (The iconic nitrogen-ice glacier "Heart")',
+      'Sputnik Planitia (Convecting nitrogen-ice plain with no craters)',
+      'Hillary & Tenzing Montes (Pure water-ice mountains 3.5 km high)'
+    ],
+    missions: [
+      { name: 'New Horizons', agency: 'NASA', year: '2015', type: 'Flyby', summary: 'Historic reconnaissance capturing first high-resolution imagery of Pluto’s heart glacier, blue atmospheric haze, and chaotic terrain.' }
+    ],
+    overview: 'Pluto is the largest known dwarf planet in the Kuiper Belt. Far from an inert ice ball, NASA’s New Horizons mission revealed a geologically young, dynamic world with convective nitrogen glaciers, towering water-ice peaks, and layered blue atmospheric hazes.',
+    scaleNote: 'Pluto’s orbit is inclined 17 degrees to the solar plane and is eccentric, periodically bringing it closer to the Sun than Neptune.'
   }
 ];
 
@@ -709,6 +792,45 @@ export const MOONS_DATA: CelestialBody[] = [
     ],
     overview: 'Despite its tiny size (smaller than the United Kingdom), Enceladus is one of the most exciting worlds in planetary science. Plumes of salty water spray from its subsurface ocean directly into space through south-polar fissures, confirming hydrothermal activity and all key chemical prerequisites for life.',
     scaleNote: 'Enceladus is the brightest world in the solar system, coated in fresh, pristine water ice sprayed continuously from its south-polar geysers.'
+  },
+
+  // 8. CHARON (PLUTO)
+  {
+    id: 'charon',
+    name: 'Charon',
+    tagline: 'Pluto’s Mutually Locked Binary Companion',
+    category: 'Moon',
+    parentId: 'pluto',
+    visualRadius: 0.22,
+    visualDistance: 1.8,
+    orbitPeriodVisual: 6.39,
+    rotationPeriodVisual: 6.39,
+    axialTiltDeg: 0,
+    color: '#9ca3af',
+    glowColor: '#d1d5db',
+    texturePath: '/textures/moon.jpg',
+    diameterKm: 1212.0,
+    diameterRelativeToEarth: 0.095,
+    massScientific: '1.586 × 10²¹ kg',
+    massRelativeToEarth: 0.00026,
+    distanceFromSunAU: 39.48,
+    distanceFromSunMillionKm: 5906.4,
+    orbitalPeriodDays: 6.387,
+    orbitalPeriodDescription: '6.39 Earth Days (Tidally locked with Pluto)',
+    rotationPeriodHours: 153.3,
+    rotationPeriodDescription: '153.3 Hours',
+    surfaceGravityMs2: 0.288,
+    surfaceGravityG: 0.029,
+    meanTempC: -220,
+    tempRangeC: '-230°C to -215°C',
+    confirmedMoons: 0,
+    atmosphereComposition: ['Exosphere (Undetected)'],
+    notableFeatures: ['Mordor Macula (Reddish tholin-stained north polar cap)', 'Argo Chasma canyon system (4 times deeper than Grand Canyon)', 'Mutual tidal lock—orbits common barycenter outside Pluto'],
+    missions: [
+      { name: 'New Horizons', agency: 'NASA', year: '2015', type: 'Flyby', summary: 'Revealed massive tectonic extensional canyons and tholin-rich polar cap.' }
+    ],
+    overview: 'Charon is so massive relative to Pluto that the two worlds orbit a center of mass located above Pluto’s surface, forming a true binary planet system. The same hemisphere of Pluto always faces Charon, and vice versa.',
+    scaleNote: 'Charon is more than half the diameter of Pluto, making it the largest satellite relative to its parent planet in the solar system.'
   }
 ];
 
@@ -796,6 +918,14 @@ export const GUIDED_TOUR_STEPS: GuidedTourStep[] = [
     category: 'Ice Giant',
     scientificFact: 'Despite receiving only 0.1% of Earth’s sunlight, Neptune drives the fastest recorded atmospheric winds in the solar system, reaching supersonic speeds over 2,100 km/h.',
     durationMs: 7000
+  },
+  {
+    id: 'pluto',
+    name: 'Pluto',
+    tagline: 'The Crown Jewel of the Kuiper Belt',
+    category: 'Dwarf Planet',
+    scientificFact: 'NASA’s New Horizons spacecraft discovered that Pluto harbors active nitrogen glaciers churning in convection cells across Sputnik Planitia and mountain peaks made of rock-hard water ice 3,500 meters tall.',
+    durationMs: 7500
   }
 ];
 

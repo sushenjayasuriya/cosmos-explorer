@@ -1,6 +1,5 @@
 import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import { type CelestialBody } from '../data/planets';
 import { getSafeTexture } from '../utils/safeTexture';
@@ -33,8 +32,10 @@ export const PlanetMesh: React.FC<PlanetMeshProps> = ({
   const planetMeshRef = useRef<THREE.Mesh>(null);
   const cloudsMeshRef = useRef<THREE.Mesh>(null);
 
-  // Primary surface texture (cached, resilient)
-  const texture = useTexture(planet.texturePath);
+  // Primary surface texture (cached, resilient, graceful canvas fallback)
+  const texture = useMemo(() => {
+    return getSafeTexture(planet.texturePath, planet.color);
+  }, [planet.texturePath, planet.color]);
   
   // Earth clouds texture (only loaded when cloudsPath is present)
   const cloudsTexture = useMemo(() => {
