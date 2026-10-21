@@ -71,9 +71,9 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 h-16 sm:h-20 px-3 sm:px-8 flex items-center justify-between border-b border-white/10 glass-panel-subtle backdrop-blur-xl select-none">
+    <header className="fixed top-0 left-0 right-0 z-40 h-16 sm:h-20 px-3 sm:px-5 lg:px-6 flex items-center justify-between border-b border-white/10 glass-panel-subtle backdrop-blur-xl select-none max-w-full overflow-hidden">
       {/* Brand Identity */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 flex-shrink-0">
         <button
           onClick={handleBrandClick}
           className="flex items-center gap-2.5 sm:gap-3 text-left group focus:outline-none focus:ring-2 focus:ring-sky-400 rounded-xl p-1 cursor-pointer"
@@ -89,7 +89,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
                 COSMOS
               </span>
             </div>
-            <p className="text-[9px] sm:text-[10px] tracking-[0.25em] text-slate-400 uppercase font-mono">
+            <p className="text-[9px] sm:text-[10px] tracking-[0.25em] text-slate-400 uppercase font-mono whitespace-nowrap">
               Beyond the Horizon
             </p>
           </div>
@@ -157,7 +157,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
       </nav>
 
       {/* Right Controls and Actions */}
-      <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+      <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
         {/* Solar-System Specific Actions (Only rendered on '/') */}
         {isSolarRoute && (
           <>
@@ -179,18 +179,18 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
             {/* Focus Mode (Cinematic full-screen 3D exploration) */}
             <button
               onClick={onToggleFocusMode}
-              className="hidden lg:flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono border border-white/10 glass-button text-slate-300 hover:text-white whitespace-nowrap flex-shrink-0 leading-none"
+              className="hidden xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-mono border border-white/10 glass-button text-slate-300 hover:text-white whitespace-nowrap flex-shrink-0 leading-none"
               title="Enable Cinematic Focus Mode (Hides UI)"
               aria-label="Enable Focus Mode"
             >
               <Maximize2 size={13} className="text-emerald-400 flex-shrink-0" />
-              <span className="hidden xl:inline">FOCUS</span>
+              <span className="hidden 2xl:inline">FOCUS</span>
             </button>
 
             {/* Toggle Intro Guide */}
             <button
               onClick={onToggleHero}
-              className={`hidden md:flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono border transition-all whitespace-nowrap flex-shrink-0 leading-none ${
+              className={`hidden 2xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-mono border transition-all whitespace-nowrap flex-shrink-0 leading-none ${
                 showHero
                   ? 'bg-sky-500/25 border-sky-400/60 text-sky-300 shadow-md shadow-sky-500/20'
                   : 'border-white/10 glass-button text-slate-300 hover:text-white'
@@ -205,7 +205,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
             {/* Quality Mode Toggle */}
             <button
               onClick={onToggleQuality}
-              className="hidden xl:flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono border border-white/10 glass-button text-slate-300 hover:text-white whitespace-nowrap flex-shrink-0 leading-none"
+              className="hidden 2xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-mono border border-white/10 glass-button text-slate-300 hover:text-white whitespace-nowrap flex-shrink-0 leading-none"
               title={quality === 'high' ? 'Switch to Eco Mode' : 'Switch to High Quality'}
             >
               <Zap size={13} className={`flex-shrink-0 ${quality === 'high' ? 'text-amber-400' : 'text-emerald-400'}`} />
@@ -218,7 +218,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         {onOpenLiveCenter && (
           <button
             onClick={onOpenLiveCenter}
-            className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono border border-emerald-500/40 bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 hover:text-emerald-100 transition-all shadow-md shadow-emerald-950/40 flex-shrink-0 group cursor-pointer"
+            className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-xl text-xs font-mono border border-emerald-500/40 bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 hover:text-emerald-100 transition-all shadow-md shadow-emerald-950/40 flex-shrink-0 group cursor-pointer"
             title="Open Real-Time NASA Live Space Center (ISS Orbit Tracker, APOD, Asteroid Radar)"
             aria-label="Open Real-Time NASA Space Center"
           >
@@ -226,15 +226,15 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <Radio size={13} className="text-emerald-400 group-hover:scale-110 transition-transform" />
-            <span className="font-semibold tracking-wider text-[11px] sm:text-xs">LIVE NASA</span>
+            <Radio size={13} className="text-emerald-400 group-hover:scale-110 transition-transform flex-shrink-0" />
+            <span className="font-semibold tracking-wider text-[11px] sm:text-xs whitespace-nowrap">LIVE NASA</span>
           </button>
         )}
 
         {/* Ambient Cosmic Sound Generator (Available across all routes) */}
         <button
           onClick={onToggleAudio}
-          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-mono border transition-all whitespace-nowrap flex-shrink-0 leading-none ${
+          className={`flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-xl text-xs font-mono border transition-all whitespace-nowrap flex-shrink-0 leading-none ${
             audioActive
               ? 'bg-sky-500/25 border-sky-400/60 text-sky-300 shadow-md shadow-sky-500/20'
               : 'border-white/10 glass-button text-slate-400 hover:text-slate-200'
@@ -244,7 +244,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         >
           {audioActive ? (
             <>
-              <Volume2 size={14} className="animate-pulse flex-shrink-0" />
+              <Volume2 size={14} className="animate-pulse flex-shrink-0 text-sky-300" />
               <span className="hidden 2xl:inline">AUDIO ON</span>
             </>
           ) : (
@@ -259,7 +259,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         {isSolarRoute && (
           <button
             onClick={onOpenShortcuts}
-            className="hidden 2xl:flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono border border-white/10 glass-button text-slate-300 hover:text-white whitespace-nowrap flex-shrink-0 leading-none"
+            className="hidden 2xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-mono border border-white/10 glass-button text-slate-300 hover:text-white whitespace-nowrap flex-shrink-0 leading-none"
             title="View Keyboard Shortcuts"
             aria-label="View Keyboard Shortcuts"
           >
@@ -271,7 +271,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         {/* Attribution & Data Source Modal */}
         <button
           onClick={onOpenAttribution}
-          className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono border border-white/10 glass-button text-slate-300 hover:text-white whitespace-nowrap flex-shrink-0 leading-none"
+          className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-xl text-xs font-mono border border-white/10 glass-button text-slate-300 hover:text-white whitespace-nowrap flex-shrink-0 leading-none"
           title="Scientific Data References & Image Licenses"
           aria-label="Scientific Data References & Image Licenses"
         >
@@ -279,8 +279,8 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           <span className="hidden sm:inline">DATA</span>
         </button>
 
-        {/* Return to Solar Overview button (If on subpage or non-overview) */}
-        {!isSolarRoute ? (
+        {/* Return to Solar Overview button (ONLY on subpages, as Solar page already has bottom bar & brand reset) */}
+        {!isSolarRoute && (
           <NavLink
             to="/"
             className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-space font-semibold bg-sky-500/20 hover:bg-sky-500/30 border border-sky-400/40 text-sky-200 hover:text-white transition-all shadow-sm whitespace-nowrap flex-shrink-0 leading-none"
@@ -289,15 +289,6 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
             <RotateCcw size={13} className="flex-shrink-0" />
             <span className="hidden sm:inline">3D SYSTEM</span>
           </NavLink>
-        ) : (
-          <button
-            onClick={onResetView}
-            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-space font-semibold bg-sky-500/20 hover:bg-sky-500/30 border border-sky-400/40 text-sky-200 hover:text-white transition-all shadow-sm whitespace-nowrap flex-shrink-0 leading-none"
-            title="Reset to Solar Overview (Esc)"
-          >
-            <RotateCcw size={13} className="flex-shrink-0" />
-            <span className="hidden sm:inline">OVERVIEW</span>
-          </button>
         )}
 
         {/* Mobile Navigation Drawer Toggle */}

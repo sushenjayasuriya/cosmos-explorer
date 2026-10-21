@@ -107,7 +107,7 @@ export const ControlBar: React.FC<ControlBarProps> = ({
       style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))' }}
     >
       {/* Top Tier: Dedicated Planet Selector Shelf */}
-      <div className="pointer-events-auto relative w-full max-w-[min(940px,calc(100vw-1.5rem))] flex items-center justify-center">
+      <div className="pointer-events-auto relative w-full max-w-[min(1080px,calc(100vw-1.5rem))] flex items-center justify-center">
         {/* Left Arrow Button */}
         {canScrollLeft && (
           <button
@@ -132,7 +132,7 @@ export const ControlBar: React.FC<ControlBarProps> = ({
           ref={scrollContainerRef}
           onWheel={handleWheel}
           aria-label="Planet Quick Selector"
-          className="w-full overflow-x-auto no-scrollbar py-2 px-3 sm:px-4 flex items-center justify-start md:justify-center gap-2 sm:gap-2.5 rounded-2xl glass-panel-subtle shadow-2xl backdrop-blur-xl border border-white/15"
+          className="w-full overflow-x-auto no-scrollbar py-2 px-3 sm:px-4 flex items-center justify-start xl:justify-center gap-1.5 sm:gap-2 rounded-2xl glass-panel-subtle shadow-2xl backdrop-blur-xl border border-white/15"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {CELESTIAL_BODIES.map((body) => {
@@ -144,7 +144,7 @@ export const ControlBar: React.FC<ControlBarProps> = ({
                   buttonRefs.current[body.id] = el;
                 }}
                 onClick={() => onSelect(body.id)}
-                className={`flex-shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl text-xs font-space font-medium transition-all whitespace-nowrap min-h-[36px] ${
+                className={`flex-shrink-0 flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-space font-medium transition-all whitespace-nowrap min-h-[36px] ${
                   isActive
                     ? 'bg-sky-500/30 border border-sky-400 text-white shadow-lg shadow-sky-500/30 scale-105'
                     : 'text-slate-300 hover:text-white hover:bg-white/10 border border-transparent'
@@ -184,7 +184,7 @@ export const ControlBar: React.FC<ControlBarProps> = ({
       </div>
 
       {/* Bottom Tier: Simulation & Orbit Controls */}
-      <div className="pointer-events-auto flex items-center flex-wrap justify-center gap-1.5 sm:gap-2.5 py-1.5 sm:py-2 px-3 sm:px-5 rounded-2xl glass-panel border border-white/15 text-xs text-slate-300 shadow-2xl max-w-[min(940px,calc(100vw-1.5rem))]">
+      <div className="pointer-events-auto flex items-center flex-wrap justify-center gap-1.5 sm:gap-2.5 py-1.5 sm:py-2 px-3 sm:px-5 rounded-2xl glass-panel border border-white/15 text-xs text-slate-300 shadow-2xl max-w-[min(1080px,calc(100vw-1.5rem))]">
         {/* Play / Pause Button */}
         <button
           onClick={onTogglePause}
