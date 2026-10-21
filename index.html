@@ -2,11 +2,38 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="theme-color" content="#030712" />
-    <meta name="description" content="COSMOS — Beyond the Horizon: An interactive, cinematic 3D solar system and space exploration experience using authentic NASA/JPL reference data, scientific facts, and planetary textures." />
-    <title>COSMOS — Beyond the Horizon | 3D Solar System Explorer</title>
     
+    <!-- Primary SEO Metadata -->
+    <title>COSMOS — Beyond the Horizon | Interactive 3D Solar System & Astronomy Platform</title>
+    <meta name="description" content="Explore the universe with COSMOS: an interactive 3D solar system simulation, historic NASA space missions, 3D spacecraft viewer, astronomy encyclopedia, and deep-space media gallery backed by verified NASA/JPL telemetry." />
+    <meta name="keywords" content="astronomy, solar system, 3D solar system, space exploration, NASA missions, Voyager, Cassini, James Webb Space Telescope, JWST, Europa Clipper, Perseverance rover, astrophysics, planetary science, Three.js, WebGL planetarium" />
+    <meta name="author" content="COSMOS — Beyond the Horizon" />
+    <meta name="publisher" content="COSMOS" />
+    <link rel="canonical" href="https://cosmos.sushenjayasuriya.org.lk/" />
+
+    <!-- Search Engine & AI Crawler Directives -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="COSMOS — Beyond the Horizon" />
+    <meta property="og:url" content="https://cosmos.sushenjayasuriya.org.lk/" />
+    <meta property="og:title" content="COSMOS — Beyond the Horizon | 3D Solar System & Space Missions" />
+    <meta property="og:description" content="Immersive 3D solar system simulator, historic robotic space missions, interactive 3D spacecraft, astrophysics encyclopedia, and high-resolution NASA imagery." />
+    <meta property="og:image" content="https://images-assets.nasa.gov/image/PIA18033/PIA18033~orig.jpg" />
+    <meta property="og:image:alt" content="Earth and Solar System simulation view from COSMOS" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="COSMOS — Beyond the Horizon | 3D Solar System Explorer" />
+    <meta name="twitter:description" content="Explore planets, moons, historic NASA space missions, and astrophysics research in a cinematic 3D digital planetarium." />
+    <meta name="twitter:image" content="https://images-assets.nasa.gov/image/PIA18033/PIA18033~orig.jpg" />
+
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,8 +41,69 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4'/><path d='M21.17 8A10 10 0 0 0 2.83 8'/><path d='M2.83 16a10 10 0 0 0 18.34 0'/></svg>" />
+
+    <!-- Global Structured Data / JSON-LD for Search Engines & AI Crawlers -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://cosmos.sushenjayasuriya.org.lk/#website",
+          "url": "https://cosmos.sushenjayasuriya.org.lk/",
+          "name": "COSMOS — Beyond the Horizon",
+          "description": "Interactive 3D Solar System, Space Missions Fleet, Astronomy Encyclopedia, and Deep Space Gallery powered by NASA/JPL telemetry.",
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://cosmos.sushenjayasuriya.org.lk/#app",
+          "name": "COSMOS 3D Space Explorer",
+          "url": "https://cosmos.sushenjayasuriya.org.lk/",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "All modern web browsers with WebGL support",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Interactive 3D solar system with eight planets and seven moons",
+            "Real-time cinematic orbital camera navigation",
+            "Curated space mission profiles with interactive 3D spacecraft viewers (Voyager, Cassini, JWST)",
+            "Astronomy encyclopedia with 15 peer-reviewed educational articles",
+            "Deep space high-resolution media gallery with NASA SVS videos"
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-[#030712] text-slate-100 antialiased">
+    <!-- Non-JavaScript Fallback for Search Engines and AI Web Crawlers -->
+    <noscript>
+      <div style="padding: 2rem; max-width: 800px; margin: 0 auto; color: #f8fafc; font-family: sans-serif;">
+        <h1>COSMOS — Beyond the Horizon</h1>
+        <p>An interactive 3D solar system simulation, historic NASA space missions, astrophysics encyclopedia, and deep-space media gallery.</p>
+        <nav aria-label="Main Navigation">
+          <ul>
+            <li><a href="/" style="color: #38bdf8;">Solar System Explorer</a></li>
+            <li><a href="/missions" style="color: #38bdf8;">Space Missions Fleet</a></li>
+            <li><a href="/discover" style="color: #38bdf8;">Astronomy Encyclopedia</a></li>
+            <li><a href="/gallery" style="color: #38bdf8;">Deep Space Gallery</a></li>
+          </ul>
+        </nav>
+        <section>
+          <h2>Space Missions</h2>
+          <p>Explore Voyager 1, Voyager 2, Cassini-Huygens, Juno, Mars Perseverance, New Horizons, Europa Clipper, and the James Webb Space Telescope.</p>
+        </section>
+        <section>
+          <h2>Astronomy Research Articles</h2>
+          <p>Read about star formation, life cycles of stars, black holes, event horizons, the Milky Way, Andromeda, nebulae, exoplanets, and spacecraft navigation.</p>
+        </section>
+      </div>
+    </noscript>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

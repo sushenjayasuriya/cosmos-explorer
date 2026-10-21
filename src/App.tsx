@@ -40,27 +40,80 @@ function RouteLoadingFallback() {
   );
 }
 
-// Route Title and SEO Manager
+import { MISSIONS_DATA } from './data/missions';
+import { ARTICLES_DATA } from './data/articles';
+
+// Route Title, Canonical URL, and Dynamic SEO Meta Manager
 function RouteMetaManager() {
   const location = useLocation();
 
   useEffect(() => {
     const path = location.pathname;
+    const origin = 'https://cosmos.sushenjayasuriya.org.lk';
     let title = 'COSMOS — Beyond the Horizon | 3D Solar System Explorer';
+    let description = 'Interactive 3D solar system simulation and astronomy exploration platform built with Three.js and authentic NASA/JPL telemetry.';
 
     if (path.startsWith('/missions/')) {
-      title = 'Space Mission Profile | COSMOS Explorer';
+      const id = path.replace('/missions/', '');
+      const mission = MISSIONS_DATA.find((m) => m.id === id);
+      if (mission) {
+        title = `${mission.name} (${mission.agency}) | Space Mission Profile | COSMOS`;
+        description = `${mission.name}: ${mission.tagline}. Primary destination: ${mission.primaryDestination}. Objectives: ${mission.objectives.join(', ')}.`;
+      } else {
+        title = 'Space Mission Profile | COSMOS Explorer';
+      }
     } else if (path === '/missions') {
-      title = 'Space Missions Fleet | COSMOS Explorer';
+      title = 'Space Missions Fleet | Exploration Probes & Telescopes | COSMOS';
+      description = 'Explore landmark space missions including Voyager 1 & 2, Cassini-Huygens, Juno, Perseverance, New Horizons, Europa Clipper, and JWST with interactive 3D models.';
     } else if (path.startsWith('/discover/')) {
-      title = 'Astronomy Article | COSMOS Explorer';
+      const slug = path.replace('/discover/', '');
+      const article = ARTICLES_DATA.find((a) => a.slug === slug);
+      if (article) {
+        title = `${article.title} | Astronomy Encyclopedia | COSMOS`;
+        description = `${article.summary} Researched and verified with peer-reviewed astronomical references.`;
+      } else {
+        title = 'Astronomy Article | COSMOS Explorer';
+      }
     } else if (path === '/discover') {
-      title = 'Astronomy Encyclopedia | COSMOS Explorer';
+      title = 'Astronomy Encyclopedia | Stellar Evolution, Black Holes & Galaxies | COSMOS';
+      description = 'Peer-reviewed educational library on astrophysics, stellar lifecycles, black holes, event horizons, exoplanets, and space technology.';
     } else if (path === '/gallery') {
-      title = 'Deep Space Gallery | COSMOS Explorer';
+      title = 'Deep Space Gallery | Hubble, JWST & NASA SVS Astronomy Media | COSMOS';
+      description = 'Curated high-resolution imagery and scientific visualization videos of nebulae, star-forming regions, galaxies, and planets from Hubble, Webb, and NASA missions.';
     }
 
     document.title = title;
+
+    // Update Meta Description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', description);
+
+    // Update Open Graph Description
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', description);
+
+    // Update Open Graph Title
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', title);
+
+    // Update Canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', `${origin}${path === '/' ? '/' : path}`);
+
+    // Update Open Graph URL
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', `${origin}${path === '/' ? '/' : path}`);
+
     window.scrollTo(0, 0);
   }, [location.pathname]);
 

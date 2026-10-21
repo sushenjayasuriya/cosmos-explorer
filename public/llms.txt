@@ -1,0 +1,47 @@
+# COSMOS — Beyond the Horizon
+
+> An interactive 3D solar system simulation and astronomy exploration platform built with React, Three.js, and authentic NASA/JPL telemetry.
+
+Website: https://cosmos.sushenjayasuriya.org.lk
+Source Repository: https://github.com/sushenjayasuriya/cosmos-explorer
+Attribution: NASA, JPL-Caltech, ESA, STScI, ESO
+
+## Platform Overview
+
+COSMOS transforms solar system observation into an educational platform spanning planetary science, deep-space missions, astrophysics, and space imaging.
+
+### Core Sections
+
+- [Solar System Explorer](https://cosmos.sushenjayasuriya.org.lk/): Real-time interactive 3D planetary simulation featuring the Sun, 8 planets (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune), 7 moons (The Moon, Io, Europa, Ganymede, Titan, Enceladus, Triton), and planetary telemetry.
+- [Space Missions Explorer](https://cosmos.sushenjayasuriya.org.lk/missions): Comprehensive catalog and interactive 3D models of humanity's landmark robotic spacecraft.
+- [Astronomy Encyclopedia](https://cosmos.sushenjayasuriya.org.lk/discover): Researched educational articles on stellar evolution, black holes, galactic dynamics, exoplanets, and space technology.
+- [Deep Space Gallery](https://cosmos.sushenjayasuriya.org.lk/gallery): High-resolution imagery from Hubble, JWST, Chandra, and NASA Scientific Visualization Studio (SVS) video observations.
+
+## Landmark Space Missions
+
+- [Voyager 1](https://cosmos.sushenjayasuriya.org.lk/missions/voyager-1): Launched 1977 by NASA. First human-made object to enter interstellar space (>24 billion km from Earth). Explored Jupiter and Saturn. Carries the Golden Record.
+- [Voyager 2](https://cosmos.sushenjayasuriya.org.lk/missions/voyager-2): Launched 1977 by NASA. The only probe to explore all four giant outer planets (Jupiter, Saturn, Uranus, Neptune) and now in interstellar space.
+- [Cassini-Huygens](https://cosmos.sushenjayasuriya.org.lk/missions/cassini-huygens): Launched 1997 by NASA/ESA/ASI. Orbited Saturn for 13 years; discovered water-ice plumes on Enceladus and deployed the Huygens probe onto Titan's hydrocarbon surface.
+- [Juno](https://cosmos.sushenjayasuriya.org.lk/missions/juno): Launched 2011 by NASA. Solar-powered polar orbiter investigating Jupiter's deep atmosphere, magnetic dynamo, and core composition.
+- [Mars 2020 Perseverance](https://cosmos.sushenjayasuriya.org.lk/missions/perseverance): Launched 2020 by NASA. Rover searching for ancient microbial life in Jezero Crater, producing oxygen with MOXIE, and deploying the Ingenuity helicopter.
+- [New Horizons](https://cosmos.sushenjayasuriya.org.lk/missions/new-horizons): Launched 2006 by NASA. High-speed flyby of Pluto and Charon in 2015, followed by Kuiper Belt planetesimal Arrokoth in 2019.
+- [Europa Clipper](https://cosmos.sushenjayasuriya.org.lk/missions/europa-clipper): Launched October 2024 by NASA. En route to Jupiter to assess the habitability of Europa's subsurface liquid ocean.
+- [James Webb Space Telescope (JWST)](https://cosmos.sushenjayasuriya.org.lk/missions/jwst): Launched 2021 by NASA/ESA/CSA. Premier infrared space observatory stationed at Sun-Earth Lagrange Point 2 (L2), observing first-generation stars and exoplanetary atmospheres.
+
+## Researched Astronomy Articles
+
+- [How Stars Are Born](https://cosmos.sushenjayasuriya.org.lk/discover/how-stars-are-born): Gravitational collapse of molecular gas clouds, Jeans mass, and protostellar ignition.
+- [The Life Cycle of a Star](https://cosmos.sushenjayasuriya.org.lk/discover/the-life-cycle-of-a-star): Main sequence equilibrium, red giant expansion, planetary nebulae, white dwarfs, neutron stars, and core-collapse supernovae.
+- [What Is a Black Hole?](https://cosmos.sushenjayasuriya.org.lk/discover/what-is-a-black-hole): General relativity spacetime curvature, singularities, and stellar-mass vs. supermassive black holes.
+- [Event Horizons Explained](https://cosmos.sushenjayasuriya.org.lk/discover/event-horizons-explained): Schwarzschild radius, light trapping boundaries, gravitational time dilation, and photon spheres.
+- [The Milky Way Galaxy](https://cosmos.sushenjayasuriya.org.lk/discover/the-milky-way-galaxy): Barred spiral structure, Sagittarius A* central black hole, stellar populations, and dark matter halo.
+- [Andromeda Galaxy](https://cosmos.sushenjayasuriya.org.lk/discover/andromeda-galaxy): Messier 31 characteristics, local group dynamics, and future Milky Way collision trajectory.
+- [Types of Galaxies](https://cosmos.sushenjayasuriya.org.lk/discover/types-of-galaxies): Hubble classification scheme: spirals, ellipticals, lenticulars, and irregulars.
+- [What Are Nebulae?](https://cosmos.sushenjayasuriya.org.lk/discover/what-are-nebulae): Interstellar clouds of dust, hydrogen, and helium; emission, reflection, dark, and planetary nebulae.
+- [The Pillars of Creation](https://cosmos.sushenjayasuriya.org.lk/discover/the-pillars-of-creation): Eagle Nebula (M16) star-forming towers observed in optical and infrared by Hubble and JWST.
+- [How Exoplanets Are Discovered](https://cosmos.sushenjayasuriya.org.lk/discover/how-exoplanets-are-discovered): Transit photometry (Kepler, TESS), radial velocity Doppler shifts, gravitational microlensing, and direct imaging.
+- [Habitable Zones](https://cosmos.sushenjayasuriya.org.lk/discover/habitable-zones): Circumstellar Goldilocks zones, liquid water equilibrium, stellar irradiance, and planetary atmospheres.
+- [The Kuiper Belt](https://cosmos.sushenjayasuriya.org.lk/discover/the-kuiper-belt): Trans-Neptunian disc of icy planetesimals, dwarf planets (Pluto, Haumea, Makemake), and resonant orbits.
+- [The Oort Cloud](https://cosmos.sushenjayasuriya.org.lk/discover/the-oort-cloud): Hypothetical spherical reservoir of billions of icy cometary nuclei extending up to 100,000 AU.
+- [How Spacecraft Navigate](https://cosmos.sushenjayasuriya.org.lk/discover/how-spacecraft-navigate): Deep Space Network (DSN) radiometric tracking, celestial optical star trackers, and gravity-assist slingshots.
+- [How the James Webb Space Telescope Works](https://cosmos.sushenjayasuriya.org.lk/discover/how-the-james-webb-space-telescope-works): Beryllium hexagonal mirror optics, five-layer Kapton sunshield, cryogenic cooling, and infrared instruments (NIRCam, MIRI, NIRSpec, NIRISS).
